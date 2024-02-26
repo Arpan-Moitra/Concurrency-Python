@@ -19,13 +19,13 @@ def power(x, y):
 
 def main():
     num_processes = max(1, cpu_count() - 1)
-    lis = [(1,2), (2,8), (3, 1)]
+    lis = [(1, 2), (2, 8), (3, 1)]
     start_time = time.time()
 
     pool = Pool(num_processes)
 
     with pool as mp_pool:
-        result = mp_pool.map(power, lis)
+        result = mp_pool.starmap(power, lis)
 
     print(result)
 
